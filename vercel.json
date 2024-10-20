@@ -1,15 +1,14 @@
 {
-    "version": 2,
     "builds": [
       {
-        "src": "DevTest/wsgi.py",  
+        "src": "fileUploader/wsgi.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "DevTest/wsgi.py"  
+        "dest": "fileUploader/wsgi.py"
       }
     ]
   }
