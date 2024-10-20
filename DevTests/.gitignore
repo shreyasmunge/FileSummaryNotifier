@@ -1,0 +1,2 @@
+#gitignore used so that the important data is not exposed on git
+.env
