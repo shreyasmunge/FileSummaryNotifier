@@ -27,8 +27,9 @@ SECRET_KEY = 'django-insecure-2(&&8ys-_8gp8#-xp@qpby664xvw^79)5k9k)$nl1$_s!+hpt)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','*']
 
+DATABASES = {}
 
 # Application definition
 
@@ -71,17 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'DevTests.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -133,3 +123,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'shreyasmunge7@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_APP_PASSWORD')
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'  # The URL prefix for static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where static files will be collected
