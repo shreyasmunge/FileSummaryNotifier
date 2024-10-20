@@ -24,7 +24,7 @@ def uploadedFile(request):
 
             summary = generate_custom_summary(df)#generate summary 
 
-            send_summary_email('shreyasmunge@gmail.com', summary) #call function send_summary with two parameters
+            send_summary_email('tech@themedius.ai', summary) #call function send_summary with two parameters
 
             return render(request, 'upload.html', {'form': form, 'success': 'Summary emailed successfully!'}) #render html 
     else:
@@ -33,7 +33,7 @@ def uploadedFile(request):
     return render(request, 'upload.html', {'form': form}) #return form again 
 
 def generate_custom_summary(df):
-    # Clean the 'Cust State' column by stripping leading/trailing spaces
+
     df['Cust State'] = df['Cust State'].str.strip().str.upper()  # Convert to uppercase
     
     # Filter for rows with specific states
@@ -46,13 +46,13 @@ def generate_custom_summary(df):
     specific_pins = ['791121', '791112', '816101', '816108']
     filtered_summary_df = summary_df[summary_df['Cust Pin'].astype(str).isin(specific_pins)]
     
-    # Format the summary string with clearer spacing
+  
     summary_lines = [
         f"{row['Cust State']: <20} {row['Cust Pin']: <10} {row['DPD']}" 
         for _, row in filtered_summary_df.iterrows()
     ]
     
-    # Add a header and a message to provide context
+
     summary_string = "Summary of the uploaded file:\n\n"
     summary_string += "Cust State         Cust Pin  DPD\n"
     summary_string += "-" * 35 + "\n"  # Adding a separator line
@@ -64,7 +64,7 @@ def generate_custom_summary(df):
 
 
 def send_summary_email(recipient, summary): #email sending
-    subject = 'tesafjdkajbcakjeiufjsabft'
+    subject = 'Python Assignment --Shreyas Munge'
     html_message = f""" 
     <html>
         <body>
